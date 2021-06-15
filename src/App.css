@@ -12,3 +12,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+#userTable table, th, td{
+  border: 1px solid black;
+}
