@@ -1,10 +1,11 @@
 import './App.css';
+import FetchComponent from './FetchComponent';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        React Gone
+        <FetchComponent/>
       </header>
     </div>
   );
