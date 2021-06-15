@@ -1,4 +1,5 @@
 import React from "react";
+import loadAnimation from './loadAnimation.svg';
 
 class FetchComponent extends React.Component {
     constructor(props) {
@@ -34,6 +35,7 @@ class FetchComponent extends React.Component {
                             </tr>
                         </thead>
                     </table>
+                    <object type="image/svg+xml" data={loadAnimation}>SVG</object>
                 </div>
             );
         }
@@ -57,6 +59,7 @@ class FetchComponent extends React.Component {
                             </tr>
                         </tbody>
                     </table>
+                    <object type="image/svg+xml" data={loadAnimation}>SVG</object>
                 </div>
             );
         }
