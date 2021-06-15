@@ -1,11 +1,11 @@
 import './App.css';
-import FetchComponent from './FetchComponent';
+import UserTable from './UserTable';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <FetchComponent/>
+        <UserTable/>
       </header>
     </div>
   );
