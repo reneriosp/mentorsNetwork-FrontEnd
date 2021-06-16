@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import fetchJSON from "../functions/fetchJSON";
 
 class UserTable extends Component {
   constructor(props) {
     super(props);
-    this.fetchJSON = this.fetchJSON.bind(this);
+
+    this.loadData = this.loadData.bind(this);
+
     /* Placeholder table until we load the data */
     this.state = {
       data: {
@@ -17,26 +20,18 @@ class UserTable extends Component {
       },
     };
   }
-  /* Fetches json from mocky API */
-  async fetchJSON() {
-    try {
-      const response = await fetch(
-        "https://run.mocky.io/v3/02e9fb29-4516-48b1-8bd2-43e868303cb6"
-      );
-      const json = await response.json();
-      this.setState({ data: json });
-    } catch (error) {
-      console.log(error);
-    }
-    /* For debugging */
-    console.log(this.state.data);
+
+  async loadData() {
+    this.setState({
+      data: await fetchJSON(),
+    });
   }
 
   render() {
     return (
       <div>
         <h1>{this.props.title}</h1>
-        <button onClick={this.fetchJSON}>Get data</button>
+        <button onClick={this.loadData}>Get data</button>
         <table border={2} cellPadding={5}>
           <thead>
             <tr>
