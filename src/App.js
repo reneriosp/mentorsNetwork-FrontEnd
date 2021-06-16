@@ -1,13 +1,13 @@
 import './App.css';
 import React, { Component } from "react";
-import FetchComponent from "./components/FetchComponent";
+import UserTable from "./components/UserTable";
 
 class App extends Component {
 
   render() {
     return (
       <div>
-        <FetchComponent title="Fetch API" />
+        <UserTable title="Fetch API" />
       </div>
     );
   }

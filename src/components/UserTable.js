@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class FetchComponent extends Component {
+class UserTable extends Component {
   constructor(props) {
     super(props);
     this.fetchJSON = this.fetchJSON.bind(this);
@@ -68,4 +68,4 @@ class FetchComponent extends Component {
   }
 }
 
-export default FetchComponent;
+export default UserTable;
