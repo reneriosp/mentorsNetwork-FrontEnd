@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Create .env file
+Create a .env file in the root directory
+```
+REACT_APP_AUTH0_DOMAIN=<domain>
+REACT_APP_AUTH0_CLIENT_ID=<client_id>
+REACT_APP_AUTH0_AUDIENCE=<audience>
+REACT_APP_SERVER_URL=<server_url>
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
