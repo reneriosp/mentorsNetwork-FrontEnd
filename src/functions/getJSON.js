@@ -1,12 +1,16 @@
-async function fetchJSON(
-  url = "https://run.mocky.io/v3/02e9fb29-4516-48b1-8bd2-43e868303cb6"
+// getJSON.js
+async function getJSON(
+  url = "https://my-json-server.typicode.com/jql6/mock-api/db"
 ) {
   /**
    * Function that takes a string url and fetches and returns the json from
    * that url.
    */
 
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    method: "GET",
+    mode: "cors",
+  });
 
   if (response.status == 200) {
     const json = await response.json();
@@ -16,4 +20,4 @@ async function fetchJSON(
   }
 }
 
-export default fetchJSON;
+export default getJSON;
