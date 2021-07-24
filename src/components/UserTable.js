@@ -13,7 +13,12 @@ function UserTable(props) {
   async function loadData() {
     setLoading(true);
     // Downloading json
-    setData(await fetchJSON());
+    try {
+      const JSONData = await fetchJSON();
+      setData(JSONData);
+    } catch (error) {
+      console.error(error);
+    }
     // When download is finished, it's no longer loading
     setLoading(false);
   }
