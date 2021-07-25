@@ -1,5 +1,5 @@
 // postJSON.js
-async function postJSON(url = "http://localhost:3001/db") {
+async function postJSON(url = "http://localhost:3001/identity") {
   /**
    * Function that takes a string url and fetches and returns the json from
    * that url.
@@ -9,13 +9,8 @@ async function postJSON(url = "http://localhost:3001/db") {
     method: "POST",
     mode: "cors",
     body: JSON.stringify({
-      identity: {
-        id: "1b2b3c",
-        login: "George Doe",
-      },
-      permissions: {
-        roles: ["user"],
-      },
+      id: "1b2b3c",
+      login: "George Doe",
     }),
     headers: {
       "Content-Type": "application/json",
