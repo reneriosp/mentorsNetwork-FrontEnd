@@ -1,6 +1,23 @@
 // UserTable.js
 import React, { useState } from "react";
 import getJSON from "../functions/getJSON";
+import postJSON from "../functions/postJSON";
+
+/**
+ * To do:
+ *
+ * Return promise
+ * Creat handler to show message to user or detect errors
+ * (REST API standard such as 404)
+ * Make a post method
+ *
+ * If you return error to setState, it will crash everything
+ *
+ * make a user class that makes use of the api
+ *
+ * users page -> users:getUsers -> apiGET -> getUsers()
+ *
+ */
 
 function UserTable(props) {
   /* Placeholder table until we load the data */
@@ -23,10 +40,23 @@ function UserTable(props) {
     setLoading(false);
   }
 
+  async function uploadData() {
+    setLoading(true);
+    try {
+      const JSONData = await postJSON();
+      console.log(JSONData);
+    } catch (error) {
+      console.error(error);
+    }
+    // When download is finished, it's no longer loading
+    setLoading(false);
+  }
+
   return (
     <div>
       <h1>{props.title}</h1>
       <button onClick={loadData}>Get data</button>
+      <button onClick={uploadData}>Post data</button>
       {loading ? (
         <p>Loading...</p>
       ) : (
