@@ -1,6 +1,6 @@
 // UserTable.js
 import React, { useState } from "react";
-import fetchJSON from "../functions/fetchJSON";
+import getJSON from "../functions/getJSON";
 
 function UserTable(props) {
   /* Placeholder table until we load the data */
@@ -14,7 +14,7 @@ function UserTable(props) {
     setLoading(true);
     // Downloading json
     try {
-      const JSONData = await fetchJSON();
+      const JSONData = await getJSON();
       setData(JSONData);
     } catch (error) {
       console.error(error);
