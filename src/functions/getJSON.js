@@ -1,7 +1,5 @@
 // getJSON.js
-async function getJSON(
-  url = "https://my-json-server.typicode.com/jql6/mock-api/db"
-) {
+async function getJSON(url = "http://localhost:3001/db") {
   /**
    * Function that takes a string url and fetches and returns the json from
    * that url.
@@ -14,6 +12,7 @@ async function getJSON(
 
   if (response.status == 200) {
     const json = await response.json();
+    console.log(json);
     return json;
   } else {
     throw new Error(`Response status: ${response.status}`);
