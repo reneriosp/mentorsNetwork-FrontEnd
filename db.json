@@ -1,0 +1,11 @@
+{
+  "identity": {
+    "id": "1b2b3b",
+    "login": "John Doe"
+  },
+  "permissions": {
+    "roles": [
+      "moderator"
+    ]
+  }
+}
