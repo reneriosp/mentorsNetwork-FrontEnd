@@ -66,21 +66,29 @@ function UserTable(props) {
         <table border={2} cellPadding={5}>
           <thead>
             <tr>
-              {Object.keys(data).map((element) => {
-                return Object.keys(data[element]).map((element2, key) => {
-                  return <th key={key}>{element2}</th>;
-                });
+              {Object.keys(data.users[0]).map((columnName, key) => {
+                return (
+                  <td key={key}>
+                    <strong>{columnName}</strong>
+                  </td>
+                );
               })}
             </tr>
           </thead>
           <tbody>
-            <tr>
-              {Object.keys(data).map((element) => {
-                return Object.keys(data[element]).map((element2, key) => {
-                  return <td key={key}>{data[element][element2]}</td>;
-                });
-              })}
-            </tr>
+            {data.users.map((user) => {
+              return (
+                <tr key={user.id}>
+                  {Object.keys(user).map((columnElement, index) => {
+                    // Number of columns should be constant, therefore use
+                    // index as part of key
+                    return (
+                      <td key={`${user.id}-${index}`}>{user[columnElement]}</td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       )}
