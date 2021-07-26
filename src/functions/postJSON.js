@@ -21,7 +21,9 @@ async function postJSON(url = "http://localhost:3001/users") {
     const json = await response.json();
     return json;
   } else {
-    throw new Error(`Response status: ${response.status}`);
+    throw new Error(
+      `Response status: ${response.status} ${response.statusText}`
+    );
   }
 }
 
