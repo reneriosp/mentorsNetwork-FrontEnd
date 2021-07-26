@@ -1,8 +1,7 @@
 // postJSON.js
 async function postJSON(url = "http://localhost:3001/users") {
   /**
-   * Function that takes a string url and fetches and returns the json from
-   * that url.
+   * Function that adds a user to the users array in db.json
    */
 
   const response = await fetch(url, {
@@ -18,7 +17,7 @@ async function postJSON(url = "http://localhost:3001/users") {
     },
   });
 
-  if (response.status == 201) {
+  if (response.ok) {
     const json = await response.json();
     return json;
   } else {

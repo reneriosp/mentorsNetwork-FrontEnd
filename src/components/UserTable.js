@@ -22,9 +22,9 @@ import makeUser from "./makeUser";
 
 function UserTable(props) {
   /* Placeholder table until we load the data */
-  const initialUsers = makeUser();
-  const [data, setData] = useState({ users: [initialUsers] });
+  const [data, setData] = useState({ users: [makeUser()] });
   const [loading, setLoading] = useState(false);
+
   async function loadData() {
     setLoading(true);
     // Downloading json
@@ -37,7 +37,6 @@ function UserTable(props) {
     } catch (error) {
       console.error(error);
     }
-    // When download is finished, it's no longer loading
     setLoading(false);
   }
 
@@ -51,7 +50,6 @@ function UserTable(props) {
     } catch (error) {
       console.error(error);
     }
-    // When download is finished, it's no longer loading
     setLoading(false);
   }
 

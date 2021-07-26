@@ -10,7 +10,7 @@ async function getJSON(url = "http://localhost:3001/db") {
     mode: "cors",
   });
 
-  if (response.status == 200) {
+  if (response.ok) {
     const json = await response.json();
     console.log(json);
     return json;
