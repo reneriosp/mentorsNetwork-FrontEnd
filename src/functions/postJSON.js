@@ -1,5 +1,5 @@
 // postJSON.js
-async function postJSON(url = "http://localhost:3001/identity") {
+async function postJSON(url = "http://localhost:3001/users") {
   /**
    * Function that takes a string url and fetches and returns the json from
    * that url.
