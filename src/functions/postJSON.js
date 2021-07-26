@@ -9,8 +9,9 @@ async function postJSON(url = "http://localhost:3001/users") {
     method: "POST",
     mode: "cors",
     body: JSON.stringify({
-      id: "1b2b3c",
-      login: "George Doe",
+      id: "1a1a2a",
+      login: "Georgathan Doe",
+      role: "Admin",
     }),
     headers: {
       "Content-Type": "application/json",
