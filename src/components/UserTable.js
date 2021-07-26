@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import getJSON from "../functions/getJSON";
 import postJSON from "../functions/postJSON";
+import makeUser from "./makeUser";
 
 /**
  * To do:
  *
  * Return promise
- * Creat handler to show message to user or detect errors
+ * Create handler to show message to user or detect errors
  * (REST API standard such as 404)
  * Make a post method
  *
@@ -21,12 +22,9 @@ import postJSON from "../functions/postJSON";
 
 function UserTable(props) {
   /* Placeholder table until we load the data */
-  const [data, setData] = useState({
-    identity: { id: null, login: null },
-    permissions: { roles: null },
-  });
+  const initialUsers = makeUser();
+  const [data, setData] = useState({ users: [initialUsers] });
   const [loading, setLoading] = useState(false);
-
   async function loadData() {
     setLoading(true);
     // Downloading json
