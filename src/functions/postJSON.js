@@ -18,7 +18,7 @@ async function postJSON(url = "http://localhost:3001/users") {
     },
   });
 
-  if (response.status == 200) {
+  if (response.status == 201) {
     const json = await response.json();
     return json;
   } else {
