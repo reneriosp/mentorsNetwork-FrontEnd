@@ -30,6 +30,9 @@ function UserTable(props) {
     // Downloading json
     try {
       const JSONData = await getJSON();
+      await new Promise((resolve) => {
+        setTimeout(resolve, 1000);
+      });
       setData(JSONData);
     } catch (error) {
       console.error(error);
@@ -41,8 +44,10 @@ function UserTable(props) {
   async function uploadData() {
     setLoading(true);
     try {
-      const JSONData = await postJSON();
-      console.log(JSONData);
+      await postJSON();
+      await new Promise((resolve) => {
+        setTimeout(resolve, 1000);
+      });
     } catch (error) {
       console.error(error);
     }
