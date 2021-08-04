@@ -1,7 +1,6 @@
 // UserTable.js
 import React, { useState } from "react";
-import getJSON from "../functions/getJSON";
-import postJSON from "../functions/postJSON";
+import apiHandler from "../functions/apiHandler";
 import makeUser from "./makeUser";
 
 function UserTable(props) {
@@ -13,7 +12,7 @@ function UserTable(props) {
     setLoading(true);
     // Downloading json
     try {
-      const JSONData = await getJSON();
+      const JSONData = await apiHandler.getJSON();
       await new Promise((resolve) => {
         setTimeout(resolve, 1000);
       });
@@ -27,7 +26,7 @@ function UserTable(props) {
   async function uploadData() {
     setLoading(true);
     try {
-      await postJSON();
+      await apiHandler.postJSON();
       await new Promise((resolve) => {
         setTimeout(resolve, 1000);
       });
