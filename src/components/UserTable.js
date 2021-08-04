@@ -4,22 +4,6 @@ import getJSON from "../functions/getJSON";
 import postJSON from "../functions/postJSON";
 import makeUser from "./makeUser";
 
-/**
- * To do:
- *
- * Return promise
- * Create handler to show message to user or detect errors
- * (REST API standard such as 404)
- * Make a post method
- *
- * If you return error to setState, it will crash everything
- *
- * make a user class that makes use of the api
- *
- * users page -> users:getUsers -> apiGET -> getUsers()
- *
- */
-
 function UserTable(props) {
   /* Placeholder table until we load the data */
   const [data, setData] = useState({ users: [makeUser()] });
