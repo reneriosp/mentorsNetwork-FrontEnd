@@ -12,8 +12,7 @@ function UserTable(props) {
     setLoading(true);
     // Downloading json
     try {
-      const JSONData = await apiHandler.getJSON();
-      setData(JSONData);
+      setData(await apiHandler.getJSON());
     } catch (error) {
       console.error(error);
     }
