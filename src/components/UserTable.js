@@ -13,9 +13,6 @@ function UserTable(props) {
     // Downloading json
     try {
       const JSONData = await apiHandler.getJSON();
-      await new Promise((resolve) => {
-        setTimeout(resolve, 1000);
-      });
       setData(JSONData);
     } catch (error) {
       console.error(error);
@@ -27,9 +24,6 @@ function UserTable(props) {
     setLoading(true);
     try {
       await apiHandler.postJSON();
-      await new Promise((resolve) => {
-        setTimeout(resolve, 1000);
-      });
     } catch (error) {
       console.error(error);
     }
