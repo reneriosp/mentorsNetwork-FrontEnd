@@ -19,6 +19,8 @@ const apiHandler = (() => {
       return json;
     } // Otherwise, throw an error and show what the response status was
     else {
+      // Show the data
+      console.log(response.json());
       throw new Error(
         `Response status: ${response.status} ${response.statusText}`
       );
@@ -48,6 +50,8 @@ const apiHandler = (() => {
       return json;
     } // Otherwise, throw an error and show the response status
     else {
+      // Show the data
+      console.log(response.json());
       throw new Error(
         `Response status: ${response.status} ${response.statusText}`
       );
