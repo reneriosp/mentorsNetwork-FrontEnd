@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "1b2b3b",
+      "name": "John Doe",
+      "role": "moderator"
+    },
+    {
+      "id": "12fadc",
+      "name": "George Doe",
+      "role": "none"
+    },
+    {
+      "id": "1a1a2a",
+      "login": "Georgathan Doe",
+      "role": "Admin"
+    }
+  ]
+}
