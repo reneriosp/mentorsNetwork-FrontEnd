@@ -1,12 +1,11 @@
 import './App.css';
+import MainNavigation from './components/layout/MainNavigation'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       
-      </header>
-    </div>
+    <MainNavigation />
   );
 }
 
