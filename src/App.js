@@ -1,11 +1,14 @@
-import './App.css';
-import MainNavigation from './components/layout/MainNavigation'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import "./App.css";
+import MainNavigation from "./components/layout/MainNavigation";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Auth from "./pages/Auth";
 
 function App() {
   return (
-    <MainNavigation />
+    <div>
+      <MainNavigation />
+      <Auth />
+    </div>
   );
 }
 
