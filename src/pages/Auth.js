@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Container, Row, Col, Button } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-function Auth() {
-  const [validated, setValidated] = useState(false);
+const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().min(6).required(),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Passwords must match"),
+});
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+const Auth = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-    setValidated(true);
+  const submitForm = (submitData) => {
+    console.log(submitData);
   };
 
   return (
@@ -19,53 +30,49 @@ function Auth() {
       <Container className="mt-5">
         <h1>Sign Up</h1>
       </Container>
-      <Form
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-        className="mt-5"
-      >
+      <Form noValidate onSubmit={handleSubmit(submitForm)} className="mt-5">
         <Container>
           <Row>
             <Col>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email Address</Form.Label>
                 <Form.Control
-                  required
                   type="email"
+                  name="email"
+                  {...register("email")}
                   placeholder="Enter Email Address"
+                  isInvalid={errors.email}
                 />
-                <Form.Control.Feedback>Looks Good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
-                  Please type an email
+                  {errors.email?.message}
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
             <Col>
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label for="password">Password</Form.Label>
+                <Form.Label>Password</Form.Label>
                 <Form.Control
-                  required
                   type="password"
+                  name="password"
+                  {...register("password")}
                   placeholder="Enter Password"
+                  isInvalid={errors.password}
                 />
-                <Form.Control.Feedback>Looks Good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
-                  Please type a password{" "}
+                  {errors.password?.message}
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group controlId="formBasicPassword" className="mb-3">
-                <Form.Label for="re-enter password">
-                  Re-enter Password
-                </Form.Label>
+              <Form.Group controlId="formBasicConfirmPassword" className="mb-3">
+                <Form.Label>Re-enter Password</Form.Label>
                 <Form.Control
-                  required
                   type="password"
-                  placeholder="Re-Enter Password"
+                  name="confirmPassword"
+                  {...register("confirmPassword")}
+                  placeholder="Confirm Password"
+                  isInvalid={errors.confirmPassword}
                 />
-                <Form.Control.Feedback>Looks Good!</Form.Control.Feedback>
                 <Form.Control.Feedback type="invalid">
-                  Please type a password{" "}
+                  {errors.confirmPassword?.message}
                 </Form.Control.Feedback>
               </Form.Group>
               <Button variant="primary" type="submit" className="mb-3">
@@ -77,6 +84,6 @@ function Auth() {
       </Form>
     </Container>
   );
-}
+};
 
 export default Auth;
