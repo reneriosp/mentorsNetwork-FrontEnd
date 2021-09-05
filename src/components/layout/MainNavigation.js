@@ -17,6 +17,7 @@ function MainNavigation() {
           >
             <Nav.Item>
               <Nav.Link
+                href="/"
                 style={{
                   color: "white",
                   textDecoration: "none",
@@ -27,6 +28,7 @@ function MainNavigation() {
             </Nav.Item>
             <Nav.Item>
               <Nav.Link
+                href="/auth"
                 style={{
                   color: "white",
                   textDecoration: "none",
